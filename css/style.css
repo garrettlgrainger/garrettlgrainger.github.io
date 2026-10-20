@@ -307,29 +307,29 @@ a:hover {
 ======================================== */
 
 /*
-   Makes the downloadable CV link
+   Makes the CV link on the CV page
    black and bold while keeping it clickable.
 */
 
-.page-container a.cv-link,
-.page-container a.cv-link:link,
-.page-container a.cv-link:visited {
-    color: #000000;
-    font-weight: 700;
+.cv-page .page-container a.cv-link,
+.cv-page .page-container a.cv-link:link,
+.cv-page .page-container a.cv-link:visited {
+    color: #000000 !important;
+    font-weight: 700 !important;
     text-decoration: none;
 }
 
 
 /*
    Keep the CV link black and bold
-   when hovering over it.
+   when hovering, focusing, or clicking.
 */
 
-.page-container a.cv-link:hover,
-.page-container a.cv-link:focus,
-.page-container a.cv-link:active {
-    color: #000000;
-    font-weight: 700;
+.cv-page .page-container a.cv-link:hover,
+.cv-page .page-container a.cv-link:focus,
+.cv-page .page-container a.cv-link:active {
+    color: #000000 !important;
+    font-weight: 700 !important;
     text-decoration: underline;
 }
 

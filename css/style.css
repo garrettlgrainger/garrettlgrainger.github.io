@@ -1,6 +1,7 @@
 /* ========================================
    GENERAL
 ======================================== */
+
 * {
     box-sizing: border-box;
 }
@@ -361,8 +362,16 @@ a:hover {
    TEACHING PAGE
 ======================================== */
 
+/*
+   Teaching uses the same 1100px maximum
+   width as the header so its left edge
+   aligns with the horizontal line above.
+*/
+
 .teaching-container {
-    max-width: 850px;
+    width: 90%;
+    max-width: 1100px;
+
     margin-left: auto;
     margin-right: auto;
 }
@@ -549,6 +558,13 @@ a:hover {
 
         padding-top: 35px;
         padding-bottom: 55px;
+    }
+
+
+    /* Teaching page on phone */
+
+    .teaching-container {
+        width: calc(100% - 40px);
     }
 
 

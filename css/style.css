@@ -330,6 +330,7 @@ a:hover {
 .page-container .publication h2 a:visited {
     color: #000000;
     font-weight: 700;
+
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
@@ -346,6 +347,7 @@ a:hover {
 .page-container .publication h2 a:active {
     color: #000000;
     font-weight: 700;
+
     text-decoration: underline;
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
@@ -363,18 +365,12 @@ a:hover {
 ======================================== */
 
 /*
-   Teaching uses the same 1100px maximum
-   width as the header so its left edge
-   aligns with the horizontal line above.
+   No separate width is applied here.
+
+   Teaching therefore uses the exact same
+   .page-container width and margins as
+   Research and Op-eds.
 */
-
-.teaching-container {
-    width: 90%;
-    max-width: 1100px;
-
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .teaching-container p {
     margin-top: 0;
@@ -558,13 +554,6 @@ a:hover {
 
         padding-top: 35px;
         padding-bottom: 55px;
-    }
-
-
-    /* Teaching page on phone */
-
-    .teaching-container {
-        width: calc(100% - 40px);
     }
 
 

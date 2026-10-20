@@ -1,0 +1,490 @@
+/* ========================================
+   GENERAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    min-height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+
+    color: #333333;
+    background-color: #ffffff;
+}
+
+
+/*
+   Allows the main content to fill the
+   available space and pushes the footer
+   to the bottom on shorter pages.
+*/
+
+main {
+    flex: 1;
+}
+
+
+/* General links */
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+.site-header {
+    width: 100%;
+    background-color: #ffffff;
+}
+
+.header-container {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 35px 0 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   WEBSITE NAME
+======================================== */
+
+.site-name {
+    width: 100%;
+
+    margin-bottom: 14px;
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #dddddd;
+}
+
+.site-name a {
+    color: #333333;
+
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 1.2;
+
+    text-decoration: none;
+}
+
+.site-name a:hover {
+    color: #333333;
+    text-decoration: none;
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.site-nav {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 28px;
+    flex-wrap: wrap;
+
+    padding-bottom: 14px;
+
+    border-bottom: 1px solid #dddddd;
+}
+
+.site-nav a {
+    color: #555555;
+
+    font-size: 15px;
+    font-weight: 400;
+
+    text-decoration: none;
+}
+
+.site-nav a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+
+
+/* Current page */
+
+.site-nav a.active {
+    color: #000000;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   MAIN HOME PAGE
+======================================== */
+
+.home {
+    width: 100%;
+}
+
+.home-container {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 45px 0 80px;
+
+    display: grid;
+
+    /*
+       Photograph on LEFT
+       Biography on RIGHT
+    */
+
+    grid-template-columns: 300px minmax(0, 1fr);
+
+    gap: 70px;
+    align-items: start;
+}
+
+
+/* ========================================
+   PROFILE PHOTO
+======================================== */
+
+.profile-column {
+    grid-column: 1;
+    grid-row: 1;
+
+    width: 100%;
+
+    /*
+       Controls the vertical position
+       of the photograph.
+
+       Smaller number = move UP
+       Larger number  = move DOWN
+    */
+
+    padding-top: 100px;
+}
+
+.profile-photo {
+    display: block;
+
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+
+    margin: 0;
+
+    border-radius: 2px;
+}
+
+
+/* ========================================
+   BIOGRAPHY
+======================================== */
+
+.bio-column {
+    grid-column: 2;
+    grid-row: 1;
+
+    max-width: 700px;
+}
+
+
+/*
+   Hide the duplicate name in the body.
+   Your name already appears in the header.
+*/
+
+.bio-column h1 {
+    display: none;
+}
+
+
+/* Research position */
+
+.position {
+    margin-top: 0;
+    margin-bottom: 28px;
+
+    color: #666666;
+
+    font-size: 17px;
+}
+
+
+/* Biography paragraphs */
+
+.bio-column p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+
+/* Make "Welcome!" more prominent */
+
+.bio-column p:first-of-type {
+    margin-bottom: 28px;
+
+    color: #333333;
+
+    font-size: 28px;
+    font-weight: 400;
+}
+
+
+/* ========================================
+   STANDARD CONTENT PAGES
+   CV, Research, Op-eds, Teaching
+======================================== */
+
+.page-container {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+    padding: 45px 0 80px;
+}
+
+.page-container h1 {
+    margin-top: 0;
+    margin-bottom: 30px;
+
+    color: #333333;
+
+    font-size: 28px;
+    font-weight: 400;
+}
+
+.page-container p {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.page-container a {
+    color: #337ab7;
+    text-decoration: none;
+}
+
+.page-container a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.site-footer {
+    width: 90%;
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 25px 0 40px;
+
+    border-top: 1px solid #eeeeee;
+
+    color: #999999;
+
+    font-size: 13px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+
+/* ========================================
+   TABLETS
+======================================== */
+
+@media (max-width: 850px) {
+
+    .site-nav {
+        gap: 18px;
+    }
+
+    .home-container {
+        grid-template-columns: 220px minmax(0, 1fr);
+
+        gap: 40px;
+        padding-top: 40px;
+    }
+
+
+    /*
+       Vertical position of photograph
+       on tablet screens.
+    */
+
+    .profile-column {
+        padding-top: 100px;
+    }
+
+    .profile-photo {
+        max-width: 220px;
+    }
+
+}
+
+
+/* ========================================
+   PHONES
+======================================== */
+
+@media (max-width: 650px) {
+
+    .header-container {
+        width: calc(100% - 40px);
+
+        padding-top: 25px;
+        padding-bottom: 20px;
+    }
+
+
+    /* Website name */
+
+    .site-name {
+        width: 100%;
+
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+    }
+
+    .site-name a {
+        font-size: 34px;
+    }
+
+
+    /* Navigation */
+
+    .site-nav {
+        width: 100%;
+
+        justify-content: center;
+
+        gap: 15px;
+
+        padding-bottom: 12px;
+    }
+
+    .site-nav a {
+        font-size: 14px;
+    }
+
+
+    /* Current page */
+
+    .site-nav a.active {
+        color: #000000;
+        font-weight: 700;
+    }
+
+
+    /* ========================================
+       HOME PAGE ON PHONE
+    ======================================== */
+
+    .home-container {
+        width: calc(100% - 40px);
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 30px;
+
+        padding-top: 35px;
+        padding-bottom: 55px;
+    }
+
+
+    /* Photograph first */
+
+    .profile-column {
+        order: 1;
+
+        /*
+           Remove desktop positioning when
+           the page stacks vertically.
+        */
+
+        padding-top: 0;
+    }
+
+    .profile-photo {
+        max-width: 280px;
+
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+
+    /* Biography second */
+
+    .bio-column {
+        order: 2;
+
+        max-width: none;
+    }
+
+
+    /* Welcome heading */
+
+    .bio-column p:first-of-type {
+        font-size: 25px;
+    }
+
+
+    /* ========================================
+       STANDARD PAGES ON PHONE
+    ======================================== */
+
+    .page-container {
+        width: calc(100% - 40px);
+
+        padding-top: 35px;
+        padding-bottom: 55px;
+    }
+
+
+    /* ========================================
+       FOOTER ON PHONE
+    ======================================== */
+
+    .site-footer {
+        width: calc(100% - 40px);
+    }
+
+}

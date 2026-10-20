@@ -252,7 +252,7 @@ a:hover {
 }
 
 
-/* Make "Welcome!" more prominent */
+/* Make first paragraph more prominent */
 
 .bio-column p:first-of-type {
     margin-bottom: 28px;
@@ -299,6 +299,80 @@ a:hover {
 
 .page-container a:hover {
     text-decoration: underline;
+}
+
+
+/* ========================================
+   RESEARCH ARTICLES AND OP-EDS
+======================================== */
+
+.publication {
+    margin-bottom: 45px;
+}
+
+.publication h2 {
+    margin-top: 0;
+    margin-bottom: 12px;
+
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+
+/*
+   Research article and op-ed titles
+   are black, bold, and underlined.
+*/
+
+.page-container .publication h2 a,
+.page-container .publication h2 a:link,
+.page-container .publication h2 a:visited {
+    color: #000000;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+
+/*
+   Keep titles black, bold, and underlined
+   when the mouse is over them.
+*/
+
+.page-container .publication h2 a:hover,
+.page-container .publication h2 a:focus,
+.page-container .publication h2 a:active {
+    color: #000000;
+    font-weight: 700;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+}
+
+.publication p {
+    margin: 0;
+
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   TEACHING PAGE
+======================================== */
+
+.teaching-container {
+    max-width: 850px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.teaching-container p {
+    margin-top: 0;
+    margin-bottom: 24px;
+
+    line-height: 1.7;
 }
 
 
@@ -460,7 +534,7 @@ a:hover {
     }
 
 
-    /* Welcome heading */
+    /* First paragraph */
 
     .bio-column p:first-of-type {
         font-size: 25px;

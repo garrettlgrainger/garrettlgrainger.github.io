@@ -304,6 +304,34 @@ a:hover {
 }
 
 
+/*
+   Email addresses are black and bold
+   while remaining clickable.
+*/
+
+.contact a,
+.contact a:link,
+.contact a:visited {
+    color: #000000;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+/*
+   Underline email addresses on hover,
+   focus, or click.
+*/
+
+.contact a:hover,
+.contact a:focus,
+.contact a:active {
+    color: #000000;
+    font-weight: 700;
+    text-decoration: underline;
+}
+
+
 /* ========================================
    STANDARD CONTENT PAGES
    CV, Research, Op-eds, Teaching

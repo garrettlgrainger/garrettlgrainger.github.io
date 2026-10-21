@@ -165,16 +165,27 @@ a:hover {
     display: grid;
 
     /*
-       LEFT: photograph
-       RIGHT: biography
+       Desktop layout:
+
+                         Welcome!
+
+       PHOTO             Biography paragraph 1
+       PHOTO             Biography paragraph 2
+
+                         Contact
     */
 
-    grid-template-columns: 300px minmax(0, 1fr);
-    grid-template-rows: auto auto auto;
+    grid-template-columns: 300px minmax(0, 700px);
+
+    grid-template-areas:
+        ". welcome"
+        "photo bio"
+        ". contact";
 
     column-gap: 70px;
     row-gap: 0;
 
+    justify-content: start;
     align-items: stretch;
 }
 
@@ -184,16 +195,16 @@ a:hover {
 ======================================== */
 
 .welcome {
-    grid-column: 2;
-    grid-row: 1;
+    grid-area: welcome;
 
-    margin-top: 0;
-    margin-bottom: 28px;
+    margin: 0 0 28px 0;
+    padding: 0;
 
     color: #333333;
 
     font-size: 28px;
     font-weight: 400;
+    line-height: 1.6;
 }
 
 
@@ -202,27 +213,29 @@ a:hover {
 ======================================== */
 
 .profile-column {
-    grid-column: 1;
-    grid-row: 2;
+    grid-area: photo;
 
-    width: 100%;
+    width: 300px;
     height: 100%;
 
+    margin: 0;
     padding: 0;
 }
 
 .profile-photo {
     display: block;
 
-    width: 100%;
+    width: 300px;
     height: 100%;
 
     margin: 0;
+    padding: 0;
 
     /*
-       The photograph fills exactly the
-       height of the two biography paragraphs
-       without distorting the image.
+       The image fills the same vertical
+       space as the two biography paragraphs.
+
+       object-fit prevents distortion.
     */
 
     object-fit: cover;
@@ -237,24 +250,35 @@ a:hover {
 ======================================== */
 
 .bio-column {
-    grid-column: 2;
-    grid-row: 2;
+    grid-area: bio;
 
     width: 100%;
     max-width: 700px;
+
+    margin: 0;
+    padding: 0;
 }
 
 .bio-column p {
     margin-top: 0;
+    margin-right: 0;
     margin-bottom: 20px;
+    margin-left: 0;
+
+    padding: 0;
+
+    color: #333333;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 
 /*
-   Removing the bottom margin from the
-   final biography paragraph makes the
-   bottom of the photograph align with
-   the bottom of the final line of text.
+   Remove the final paragraph's bottom
+   margin so the bottom of the photograph
+   corresponds to the bottom of the text.
 */
 
 .bio-column p:last-child {
@@ -267,11 +291,16 @@ a:hover {
 ======================================== */
 
 .contact {
-    grid-column: 2;
-    grid-row: 3;
+    grid-area: contact;
 
-    margin-top: 20px;
-    margin-bottom: 0;
+    margin: 20px 0 0 0;
+    padding: 0;
+
+    color: #333333;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.6;
 }
 
 
@@ -452,15 +481,26 @@ a:hover {
     .home-container {
         grid-template-columns: 220px minmax(0, 1fr);
 
+        grid-template-areas:
+            ". welcome"
+            "photo bio"
+            ". contact";
+
         column-gap: 40px;
 
         padding-top: 40px;
     }
 
-    .profile-photo {
-        width: 100%;
-        max-width: none;
+    .profile-column {
+        width: 220px;
         height: 100%;
+    }
+
+    .profile-photo {
+        width: 220px;
+        height: 100%;
+
+        object-fit: cover;
     }
 
 }
@@ -536,19 +576,19 @@ a:hover {
     }
 
 
-    /* Welcome first */
+    /* Welcome */
 
     .welcome {
         order: 1;
 
-        margin-top: 0;
-        margin-bottom: 28px;
+        margin: 0 0 28px 0;
 
         font-size: 25px;
+        line-height: 1.5;
     }
 
 
-    /* Photograph second */
+    /* Photograph */
 
     .profile-column {
         order: 2;
@@ -556,34 +596,40 @@ a:hover {
         width: 100%;
         height: auto;
 
+        margin: 0 0 30px 0;
         padding: 0;
-        margin-bottom: 30px;
     }
 
     .profile-photo {
+        display: block;
+
         width: 100%;
         max-width: 280px;
         height: auto;
 
-        object-fit: initial;
+        margin: 0;
 
-        margin-left: 0;
-        margin-right: 0;
+        object-fit: initial;
     }
 
 
-    /* Biography third */
+    /* Biography */
 
     .bio-column {
         order: 3;
 
         width: 100%;
         max-width: none;
+
+        margin: 0;
+        padding: 0;
     }
 
     .bio-column p {
-        margin-top: 0;
-        margin-bottom: 20px;
+        margin: 0 0 20px 0;
+
+        font-size: 16px;
+        line-height: 1.6;
     }
 
     .bio-column p:last-child {
@@ -591,13 +637,15 @@ a:hover {
     }
 
 
-    /* Contact fourth */
+    /* Contact */
 
     .contact {
         order: 4;
 
-        margin-top: 20px;
-        margin-bottom: 0;
+        margin: 20px 0 0 0;
+
+        font-size: 16px;
+        line-height: 1.6;
     }
 
 
@@ -660,644 +708,6 @@ a:hover {
 
 /*
    Maintain standard phone margins
-   on the Teaching page.
-*/
-
-@media (max-width: 650px) {
-
-    .teaching-page .page-container {
-        width: calc(100% - 40px);
-    }
-
-}/* ========================================
-   GENERAL
-======================================== */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    min-height: 100%;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-
-    min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
-
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-
-    color: #333333;
-    background-color: #ffffff;
-}
-
-
-/*
-   Allows the main content to fill the
-   available space and pushes the footer
-   to the bottom on shorter pages.
-*/
-
-main {
-    flex: 1;
-}
-
-
-/* General links */
-
-a {
-    color: #337ab7;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
-/* ========================================
-   HEADER
-======================================== */
-
-.site-header {
-    width: 100%;
-    background-color: #ffffff;
-}
-
-.header-container {
-    width: 90%;
-    max-width: 1100px;
-
-    margin: 0 auto;
-    padding: 35px 0 25px;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-align: center;
-}
-
-
-/* ========================================
-   WEBSITE NAME
-======================================== */
-
-.site-name {
-    width: 100%;
-
-    margin-bottom: 14px;
-    padding-bottom: 14px;
-
-    border-bottom: 1px solid #dddddd;
-}
-
-.site-name a {
-    color: #333333;
-
-    font-size: 42px;
-    font-weight: 500;
-    line-height: 1.2;
-
-    text-decoration: none;
-}
-
-.site-name a:hover {
-    color: #333333;
-    text-decoration: none;
-}
-
-
-/* ========================================
-   NAVIGATION
-======================================== */
-
-.site-nav {
-    width: 100%;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    gap: 28px;
-    flex-wrap: wrap;
-
-    padding-bottom: 14px;
-
-    border-bottom: 1px solid #dddddd;
-}
-
-.site-nav a {
-    color: #555555;
-
-    font-size: 15px;
-    font-weight: 400;
-
-    text-decoration: none;
-}
-
-.site-nav a:hover {
-    color: #000000;
-    text-decoration: none;
-}
-
-
-/* Current page */
-
-.site-nav a.active {
-    color: #000000;
-    font-weight: 700;
-}
-
-
-/* ========================================
-   MAIN HOME PAGE
-======================================== */
-
-.home {
-    width: 100%;
-}
-
-.home-container {
-    width: 90%;
-    max-width: 1100px;
-
-    margin: 0 auto;
-    padding: 45px 0 80px;
-
-    display: grid;
-
-    /*
-       Photograph on LEFT
-       Biography on RIGHT
-    */
-
-    grid-template-columns: 300px minmax(0, 1fr);
-
-    gap: 70px;
-    align-items: start;
-}
-
-
-/* ========================================
-   PROFILE PHOTO
-======================================== */
-
-.profile-column {
-    grid-column: 1;
-    grid-row: 1;
-
-    width: 100%;
-
-    /*
-       Controls the vertical position
-       of the photograph.
-
-       Smaller number = move UP
-       Larger number  = move DOWN
-    */
-
-    padding-top: 100px;
-}
-
-.profile-photo {
-    display: block;
-
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-
-    margin: 0;
-
-    border-radius: 2px;
-}
-
-
-/* ========================================
-   BIOGRAPHY
-======================================== */
-
-.bio-column {
-    grid-column: 2;
-    grid-row: 1;
-
-    max-width: 700px;
-}
-
-
-/*
-   Hide the duplicate name in the body.
-   Your name already appears in the header.
-*/
-
-.bio-column h1 {
-    display: none;
-}
-
-
-/* Research position */
-
-.position {
-    margin-top: 0;
-    margin-bottom: 28px;
-
-    color: #666666;
-
-    font-size: 17px;
-}
-
-
-/* Biography paragraphs */
-
-.bio-column p {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-
-/* Make first paragraph more prominent */
-
-.bio-column p:first-of-type {
-    margin-bottom: 28px;
-
-    color: #333333;
-
-    font-size: 28px;
-    font-weight: 400;
-}
-
-
-/* ========================================
-   STANDARD CONTENT PAGES
-   CV, Research, Op-eds, Teaching
-======================================== */
-
-.page-container {
-    width: 90%;
-    max-width: 1100px;
-
-    margin: 0 auto;
-    padding: 45px 0 80px;
-}
-
-.page-container h1 {
-    margin-top: 0;
-    margin-bottom: 30px;
-
-    color: #333333;
-
-    font-size: 28px;
-    font-weight: 400;
-}
-
-.page-container p {
-    margin-top: 0;
-    margin-bottom: 20px;
-}
-
-.page-container a {
-    color: #337ab7;
-    text-decoration: none;
-}
-
-.page-container a:hover {
-    text-decoration: underline;
-}
-
-
-/* ========================================
-   CV LINK
-======================================== */
-
-/*
-   Makes the CV link on the CV page
-   black and bold while keeping it clickable.
-*/
-
-.cv-page .page-container a.cv-link,
-.cv-page .page-container a.cv-link:link,
-.cv-page .page-container a.cv-link:visited {
-    color: #000000 !important;
-    font-weight: 700 !important;
-    text-decoration: none;
-}
-
-
-/*
-   Keep the CV link black and bold
-   when hovering, focusing, or clicking.
-*/
-
-.cv-page .page-container a.cv-link:hover,
-.cv-page .page-container a.cv-link:focus,
-.cv-page .page-container a.cv-link:active {
-    color: #000000 !important;
-    font-weight: 700 !important;
-    text-decoration: underline;
-}
-
-
-/* ========================================
-   RESEARCH ARTICLES AND OP-EDS
-======================================== */
-
-.publication {
-    margin-bottom: 45px;
-}
-
-.publication h2 {
-    margin-top: 0;
-    margin-bottom: 12px;
-
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 1.4;
-}
-
-
-/*
-   Research article and op-ed titles
-   are black, bold, and underlined.
-*/
-
-.page-container .publication h2 a,
-.page-container .publication h2 a:link,
-.page-container .publication h2 a:visited {
-    color: #000000;
-    font-weight: 700;
-
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-}
-
-
-/*
-   Keep titles black, bold, and underlined
-   when the mouse is over them.
-*/
-
-.page-container .publication h2 a:hover,
-.page-container .publication h2 a:focus,
-.page-container .publication h2 a:active {
-    color: #000000;
-    font-weight: 700;
-
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 2px;
-}
-
-.publication p {
-    margin: 0;
-
-    line-height: 1.7;
-}
-
-
-/* ========================================
-   TEACHING PAGE
-======================================== */
-
-.teaching-container p {
-    margin-top: 0;
-    margin-bottom: 24px;
-
-    line-height: 1.7;
-}
-
-
-/* ========================================
-   FOOTER
-======================================== */
-
-.site-footer {
-    width: 90%;
-    max-width: 1100px;
-
-    margin: 0 auto;
-
-    padding: 25px 0 40px;
-
-    border-top: 1px solid #eeeeee;
-
-    color: #999999;
-
-    font-size: 13px;
-}
-
-.site-footer p {
-    margin: 0;
-}
-
-
-/* ========================================
-   TABLETS
-======================================== */
-
-@media (max-width: 850px) {
-
-    .site-nav {
-        gap: 18px;
-    }
-
-    .home-container {
-        grid-template-columns: 220px minmax(0, 1fr);
-
-        gap: 40px;
-        padding-top: 40px;
-    }
-
-
-    /*
-       Vertical position of photograph
-       on tablet screens.
-    */
-
-    .profile-column {
-        padding-top: 100px;
-    }
-
-    .profile-photo {
-        max-width: 220px;
-    }
-
-}
-
-
-/* ========================================
-   PHONES
-======================================== */
-
-@media (max-width: 650px) {
-
-    .header-container {
-        width: calc(100% - 40px);
-
-        padding-top: 25px;
-        padding-bottom: 20px;
-    }
-
-
-    /* Website name */
-
-    .site-name {
-        width: 100%;
-
-        margin-bottom: 12px;
-        padding-bottom: 12px;
-    }
-
-    .site-name a {
-        font-size: 34px;
-    }
-
-
-    /* Navigation */
-
-    .site-nav {
-        width: 100%;
-
-        justify-content: center;
-
-        gap: 15px;
-
-        padding-bottom: 12px;
-    }
-
-    .site-nav a {
-        font-size: 14px;
-    }
-
-
-    /* Current page */
-
-    .site-nav a.active {
-        color: #000000;
-        font-weight: 700;
-    }
-
-
-    /* ========================================
-       HOME PAGE ON PHONE
-    ======================================== */
-
-    .home-container {
-        width: calc(100% - 40px);
-
-        display: flex;
-        flex-direction: column;
-
-        gap: 30px;
-
-        padding-top: 35px;
-        padding-bottom: 55px;
-    }
-
-
-    /* Photograph first */
-
-    .profile-column {
-        order: 1;
-
-        /*
-           Remove desktop positioning when
-           the page stacks vertically.
-        */
-
-        padding-top: 0;
-    }
-
-    .profile-photo {
-        max-width: 280px;
-
-        margin-left: 0;
-        margin-right: 0;
-    }
-
-
-    /* Biography second */
-
-    .bio-column {
-        order: 2;
-
-        max-width: none;
-    }
-
-
-    /* First paragraph */
-
-    .bio-column p:first-of-type {
-        font-size: 25px;
-    }
-
-
-    /* ========================================
-       STANDARD PAGES ON PHONE
-    ======================================== */
-
-    .page-container {
-        width: calc(100% - 40px);
-
-        padding-top: 35px;
-        padding-bottom: 55px;
-    }
-
-
-    /* ========================================
-       FOOTER ON PHONE
-    ======================================== */
-
-    .site-footer {
-        width: calc(100% - 40px);
-    }
-
-}
-
-
-/* ========================================
-   TEACHING ALIGNMENT FIX
-======================================== */
-
-/*
-   Explicitly aligns the Teaching page
-   container with the standard page width.
-*/
-
-.teaching-page .page-container {
-    width: 90%;
-    max-width: 1100px;
-
-    margin-left: auto;
-    margin-right: auto;
-
-    padding-left: 0;
-    padding-right: 0;
-}
-
-
-/*
-   Remove any additional horizontal
-   indentation from the Teaching heading
-   and paragraphs.
-*/
-
-.teaching-page .page-container h1,
-.teaching-page .page-container p {
-    margin-left: 0;
-    padding-left: 0;
-}
-
-
-/* Maintain standard phone margins
    on the Teaching page.
 */
 

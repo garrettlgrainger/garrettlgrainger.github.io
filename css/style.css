@@ -231,13 +231,6 @@ a:hover {
     margin: 0;
     padding: 0;
 
-    /*
-       The image fills the same vertical
-       space as the two biography paragraphs.
-
-       object-fit prevents distortion.
-    */
-
     object-fit: cover;
     object-position: center;
 
@@ -273,13 +266,6 @@ a:hover {
     font-weight: 400;
     line-height: 1.6;
 }
-
-
-/*
-   Remove the final paragraph's bottom
-   margin so the bottom of the photograph
-   corresponds to the bottom of the text.
-*/
 
 .bio-column p:last-child {
     margin-bottom: 0;
@@ -374,11 +360,6 @@ a:hover {
    CV LINK
 ======================================== */
 
-/*
-   Makes the CV link on the CV page
-   black and bold while keeping it clickable.
-*/
-
 .cv-page .page-container a.cv-link,
 .cv-page .page-container a.cv-link:link,
 .cv-page .page-container a.cv-link:visited {
@@ -386,12 +367,6 @@ a:hover {
     font-weight: 700 !important;
     text-decoration: none;
 }
-
-
-/*
-   Keep the CV link black and bold
-   when hovering, focusing, or clicking.
-*/
 
 .cv-page .page-container a.cv-link:hover,
 .cv-page .page-container a.cv-link:focus,
@@ -419,12 +394,6 @@ a:hover {
     line-height: 1.4;
 }
 
-
-/*
-   Research article and op-ed titles
-   are black, bold, and underlined.
-*/
-
 .page-container .publication h2 a,
 .page-container .publication h2 a:link,
 .page-container .publication h2 a:visited {
@@ -435,12 +404,6 @@ a:hover {
     text-decoration-thickness: 1px;
     text-underline-offset: 2px;
 }
-
-
-/*
-   Keep titles black, bold, and underlined
-   when the mouse is over them.
-*/
 
 .page-container .publication h2 a:hover,
 .page-container .publication h2 a:focus,
@@ -469,6 +432,16 @@ a:hover {
     margin-bottom: 24px;
 
     line-height: 1.7;
+}
+
+
+/*
+   Emphasised teaching philosophy,
+   positions, and credentials.
+*/
+
+.teaching-page strong {
+    font-weight: 700;
 }
 
 
@@ -704,11 +677,6 @@ a:hover {
    TEACHING ALIGNMENT FIX
 ======================================== */
 
-/*
-   Explicitly aligns the Teaching page
-   container with the standard page width.
-*/
-
 .teaching-page .page-container {
     width: 90%;
     max-width: 1100px;
@@ -720,24 +688,11 @@ a:hover {
     padding-right: 0;
 }
 
-
-/*
-   Remove any additional horizontal
-   indentation from the Teaching heading
-   and paragraphs.
-*/
-
 .teaching-page .page-container h1,
 .teaching-page .page-container p {
     margin-left: 0;
     padding-left: 0;
 }
-
-
-/*
-   Maintain standard phone margins
-   on the Teaching page.
-*/
 
 @media (max-width: 650px) {
 

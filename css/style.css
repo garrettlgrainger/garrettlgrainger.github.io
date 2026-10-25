@@ -472,6 +472,7 @@ a:hover {
 
 /* ========================================
    TABLETS
+   769px to 850px
 ======================================== */
 
 @media (max-width: 850px) and (min-width: 769px) {
@@ -511,6 +512,7 @@ a:hover {
 
 /* ========================================
    PHONES AND SMALL SCREENS
+   768px AND BELOW
 ======================================== */
 
 @media (max-width: 768px) {
@@ -521,9 +523,9 @@ a:hover {
 
     .header-container {
         width: calc(100% - 40px);
+        max-width: none;
 
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
 
         padding-top: 25px;
         padding-bottom: 20px;
@@ -549,9 +551,12 @@ a:hover {
     .site-nav {
         width: 100%;
 
+        display: flex;
         justify-content: center;
+        align-items: center;
 
         gap: 15px;
+        flex-wrap: wrap;
 
         padding-bottom: 12px;
     }
@@ -559,9 +564,6 @@ a:hover {
     .site-nav a {
         font-size: 14px;
     }
-
-
-    /* Current page */
 
     .site-nav a.active {
         color: #000000;
@@ -577,24 +579,30 @@ a:hover {
         width: calc(100% - 40px);
         max-width: none;
 
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
 
         padding-top: 35px;
         padding-bottom: 55px;
 
-        display: flex;
-        flex-direction: column;
+        /*
+           Disable the desktop grid completely.
 
-        gap: 0;
+           The page now follows the natural
+           order of the HTML:
+
+           1. Welcome
+           2. Profile photograph
+           3. Biography
+           4. Contact information
+        */
+
+        display: block;
     }
 
 
     /* Welcome */
 
     .welcome {
-        order: 1;
-
         width: 100%;
 
         margin: 0 0 28px 0;
@@ -610,8 +618,6 @@ a:hover {
     /* Photograph */
 
     .profile-column {
-        order: 2;
-
         width: 100%;
         height: auto;
 
@@ -628,9 +634,7 @@ a:hover {
         max-width: 280px;
         height: auto;
 
-        margin-left: auto;
-        margin-right: auto;
-
+        margin: 0 auto;
         padding: 0;
 
         object-fit: contain;
@@ -643,8 +647,6 @@ a:hover {
     /* Biography */
 
     .bio-column {
-        order: 3;
-
         width: 100%;
         max-width: none;
 
@@ -656,4 +658,132 @@ a:hover {
         width: 100%;
 
         margin: 0 0 20px 0;
+        padding: 0;
+
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .bio-column p:last-child {
+        margin-bottom: 0;
+    }
+
+
+    /* Contact */
+
+    .contact {
+        width: 100%;
+
+        margin: 20px 0 0 0;
+        padding: 0;
+
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+
+    /* ========================================
+       STANDARD PAGES ON PHONE
+    ======================================== */
+
+    .page-container {
+        width: calc(100% - 40px);
+        max-width: none;
+
+        margin: 0 auto;
+
+        padding-top: 35px;
+        padding-bottom: 55px;
+    }
+
+
+    /* ========================================
+       TEACHING PAGE ON PHONE
+    ======================================== */
+
+    .teaching-page .page-container {
+        width: calc(100% - 40px);
+        max-width: none;
+
+        margin: 0 auto;
+
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+
+    /* ========================================
+       FOOTER ON PHONE
+    ======================================== */
+
+    .site-footer {
+        width: calc(100% - 40px);
+        max-width: none;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+   480px AND BELOW
+======================================== */
+
+@media (max-width: 480px) {
+
+    .header-container,
+    .home-container,
+    .page-container,
+    .teaching-page .page-container,
+    .site-footer {
+        width: calc(100% - 32px);
+    }
+
+    .site-name a {
+        font-size: 30px;
+    }
+
+    .site-nav {
+        gap: 12px;
+    }
+
+    .site-nav a {
+        font-size: 13px;
+    }
+
+    .welcome {
+        font-size: 24px;
+    }
+
+    .profile-photo {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* ========================================
+   TEACHING ALIGNMENT
+   DESKTOP
+======================================== */
+
+.teaching-page .page-container {
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.teaching-page .page-container h1,
+.teaching-page .page-container p {
+    margin-left: 0;
+    padding-left: 0;
+}
 ```

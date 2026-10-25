@@ -474,7 +474,7 @@ a:hover {
    TABLETS
 ======================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 850px) and (min-width: 769px) {
 
     .site-nav {
         gap: 18px;
@@ -503,19 +503,27 @@ a:hover {
         height: 100%;
 
         object-fit: cover;
+        object-position: center;
     }
 
 }
 
 
 /* ========================================
-   PHONES
+   PHONES AND SMALL SCREENS
 ======================================== */
 
-@media (max-width: 650px) {
+@media (max-width: 768px) {
+
+    /* ========================================
+       HEADER
+    ======================================== */
 
     .header-container {
         width: calc(100% - 40px);
+
+        margin-left: auto;
+        margin-right: auto;
 
         padding-top: 25px;
         padding-bottom: 20px;
@@ -567,7 +575,85 @@ a:hover {
 
     .home-container {
         width: calc(100% - 40px);
+        max-width: none;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding-top: 35px;
+        padding-bottom: 55px;
 
         display: flex;
-        flex-direct
+        flex-direction: column;
+
+        gap: 0;
+    }
+
+
+    /* Welcome */
+
+    .welcome {
+        order: 1;
+
+        width: 100%;
+
+        margin: 0 0 28px 0;
+        padding: 0;
+
+        font-size: 25px;
+        line-height: 1.5;
+
+        text-align: left;
+    }
+
+
+    /* Photograph */
+
+    .profile-column {
+        order: 2;
+
+        width: 100%;
+        height: auto;
+
+        margin: 0 0 30px 0;
+        padding: 0;
+
+        text-align: center;
+    }
+
+    .profile-photo {
+        display: block;
+
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        padding: 0;
+
+        object-fit: contain;
+        object-position: center;
+
+        border-radius: 2px;
+    }
+
+
+    /* Biography */
+
+    .bio-column {
+        order: 3;
+
+        width: 100%;
+        max-width: none;
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .bio-column p {
+        width: 100%;
+
+        margin: 0 0 20px 0;
 ```
